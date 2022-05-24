@@ -1,3 +1,42 @@
 body{
-    background-color: antiquewhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 650;
+    font-style: italic;
+    background-color: red;
+    width: 90vw;
+    height: 90vh;
+}
+#pokedex{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#pokesearch{
+    margin-left: 7rem;
+}
+#search-pokemon{
+    background-color: rgb(53, 14, 109);
+    width: 20rem;
+    height: 3rem;
+    color:white;
+    border-radius: 15px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 8rem;
+    margin-left: 5rem;
+    text-align: right;
+    letter-spacing: 0.3em;
+}
+#search-by-name-button{
+    background-color: gold;
+    height: 3rem;
+    width: 12rem;
+    border-radius: 10px;
+    margin-left: 9rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+
 }

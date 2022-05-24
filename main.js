@@ -13,12 +13,31 @@ document.getElementById("search-by-name-button").addEventListener("click",()=>{
             id.innerHTML = pokemon.name+"'s id is :" + pokemon.id;
             let move = document.getElementById("pokemon's-moves");
             let i = pokemon.moves.length;
-            move.innerHTML = pokemon.name+"'s last 6 moves are: " + `${pokemon.moves[i-6].move.name} ${pokemon.moves[i-5].move.name}, ${pokemon.moves[i-4].move.name}, ${pokemon.moves[i-3].move.name}, ${pokemon.moves[i-2].move.name}, ${pokemon.moves[i-1].move.name}`;
+            move.innerHTML = pokemon.name+"'s last 6 moves are: " + `${pokemon.moves[i-6].move.name}, ${pokemon.moves[i-5].move.name}, ${pokemon.moves[i-4].move.name}, ${pokemon.moves[i-3].move.name}, ${pokemon.moves[i-2].move.name}, ${pokemon.moves[i-1].move.name}`;
             let pokemonPic = document.getElementById("pokemon's-pic");
             pokemonPic.src = pokemon.sprites.back_default;
             
+        
         }
         getpokemon();
-    })
+        async function oldpokemon(){
+            const resp = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon_name}`);
+            const previousversion = await resp.json();
+            console.log(previousversion);
+            let pokemonSpecie = document.getElementById("pokemon's-evolvs");
+            pokemonSpecie.innerHTML = previousversion.name+"'s evolutions: "+previousversion.evolves_from_species.name;
+             
+            
+        }
+        oldpokemon();
+        async function evo (){
+            const res = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonSpecie}`);
+            const evol = await res.json();
+            let pokemonOldPic = document.getElementById("poke-old-pic");            
+            pokemonOldPic.innerHTML = evol.sprite.back_default;
+        }
+        evo();   
+    
+})
 
 

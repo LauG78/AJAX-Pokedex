@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class = "pokesearch">
-        <input type="text" class="input-search" id="search-pokemon">
-        <button type="button" id="search-by-name-button">Search for pokemon</button>
-    </div>
-    <div class = "pokedex">  
-        <h3 id="pokemon's-name"></h3>
-        <h3 id="pokemon's-id"></h3>
-        <h3 id="pokemon's-moves"></h3>
-        <img id="pokemon's-pic">  
+    <div class="pokedex" id="pokedex"> 
+        <div class = "pokesearch">
+            <input type="text" class="input-search" id="search-pokemon"><hr>
+            <button type="button" id="search-by-name-button">Search for pokemon</button>
+        </div>
+        <div class = "pokedisplay">  
+            <div class="image" id="image"></div>
+            <img id="pokemon's-pic"> <hr>
+            <h3 id="pokemon's-name"></h3><hr>
+            <h3 id="pokemon's-id"></h3><hr>
+            <h3 id="pokemon's-moves"></h3><hr>
+            <h3 id="pokemon's-evolvs"></h3> 
+            <img id="poke-old-pic">
+        </div>    
     </div>
     <script src="main.js"></script>
 </body>

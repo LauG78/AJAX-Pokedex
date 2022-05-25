@@ -3,7 +3,7 @@ body{
     font-size: 0.8rem;
     font-weight: 650;
     font-style: italic;
-    background-color: red;
+    background-color: rgb(209, 6, 6);
     width: 90vw;
     height: 90vh;
 }

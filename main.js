@@ -39,89 +39,10 @@ document.getElementById("search-by-name-button").addEventListener("click",()=>{
             let evoInfo = resp5.chain;
             console.log(evoInfo);
             return evoInfo;
-
+            }
+             
             
-            }
-             oldpokemon();
-             getPokemon(pokemon_name);})
-
-             /*
-            const allPokemon=[];
-            allPokemon.push([await getPokemon(resp5.chain.species.name)]);
-            const firstEvo=[];
-            const secondEvo=[];
-            if (resp5.chain.evolves_to){
-                for (let i = 0; i < resp5.chain.evolves_to.length; i++){
-                    const evo1 = await getPokemon(resp5.chain.evolves_to[i].species.name);
-                    firstEvo.push(evo1);
-                    if(resp5.chain.evolves_to[i].evolves_to){
-                        for (let j = 0; j < resp5.chain.evolves_to[i].evolves_to[j]; j++){
-                             const evo2 = await getPokemon(resp5.chain.evolves_to[i].evolves_to[j].species.name);
-                        secondEvo.push(evo2);
-                        }
-                    }
-                }
-            }
-            allPokemon.push(firstEvo);
-            allPokemon.push(secondEvo);
-           
-            let evos = document.getElementById("evo");
-            evos.innerText = allPokemon;*/
-        /*  
-        async function getPokemons(){
-            const data = await fetch(`https://pokeapi.co/api/v2/pokemon/`+pokemon_name);
-            const pokemon = await data.json();
-            return pokemon;
-
-        }
-       
-        async function getSpecies(pokemon){
-            const data=await fetch(pokemon.species.url);
-            const speciesData=await data.json();
-            return speciesData;}
-
-        async function getEvolutions(pokemon){
-            const data = await fetch(pokemon.species.url);
-            const speciesData = await data.json(); 
-        }*/
-              
-        
-        
-        async function getAllPokemon(){
-            const pokemons=await oldpokemon(pokemon_name);
-            console.log(pokemons);
-            const speciesData=await getSpecies(pokemon);
-            const resp5=await getEvolutions(speciesData);
-            const allPokemon=[];
-            allPokemon.push([await getPokemon(resp5.chain.species.name)]);
-            const firstEvo=[];
-            const secondEvo=[];
-            if (resp5.chain.evolves_to){
-                for (let i = 0; i < resp5.chain.evolves_to.length; i++){
-                    const evo1 = await getPokemon(resp5.chain.evolves_to[i].species.name);
-                    firstEvo.push(evo1);
-                    if(resp5.chain.evolves_to[i].evolves_to){
-                        for (let j = 0; j < resp5.chain.evolves_to[i].evolves_to[j]; j++){
-                             const evo2 = await getPokemon(resp5.chain.evolves_to[i].evolves_to[j].species.name);
-                        secondEvo.push(evo2);
-                        }
-                    }
-                }
-            }
-            allPokemon.push(firstEvo);
-            allPokemon.push(secondEvo);
-            console.log(allPokemon);
-            let evos = document.getElementById("evo");
-            evos.innerText = allPokemon;
-            return allPokemon;
-            };
-            getAllPokemon();
-            async function doThings(){
-                const pokemon=await getPokemons(pokemon_name);
-                const speciesData=await getSpecies(pokemon);
-                console.log(pokemon);
-                console.log(speciesData);
-            }
+            oldpokemon();
             getPokemon(pokemon_name);
-       
-       
+            
+        })            

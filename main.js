@@ -42,9 +42,23 @@ document.getElementById("search-by-name-button").addEventListener("click",()=>{
             console.log(previousversion.evolution_chain.url);
             const resp4 = await fetch (`${previousversion.evolution_chain.url}`);
             const resp5 = await resp4.json();
-            let evoInfo = resp5.chain;
-            console.log(evoInfo);
-        }            
+            console.log(resp5);
+                   
+            
+            function evol () {
+                let evolvesTo1 = "Evolution: "+resp5.chain.evolves_to[0].species.name;
+                document.getElementById("evo1").innerHTML = evolvesTo1;
+                let evolvesTo2 = "Evolution: "+resp5.chain.evolves_to[1].species.name;
+                document.getElementById("evo2").innerHTML = evolvesTo2;
+                let evolvesTo3 = "Evolution: "+resp5.chain.evolves_to[2].species.name;
+                document.getElementById("evo3").innerHTML = evolvesTo3;
+            }
+            evol();
+        }
             oldpokemon();
-            getPokemon(pokemon_name);
+            getPokemon(pokemon_name);  
+
+    //
+
+
 })      

@@ -26,23 +26,25 @@ document.getElementById("search-by-name-button").addEventListener("click",()=>{
             const resp = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon_name}`);
             const previousversion = await resp.json();
             console.log(previousversion);        
-            let pokemonSpecie = document.getElementById("pokemon's-evolvs")            
-            pokemonSpecie.innerHTML = previousversion.name+" evolved from: "+previousversion.evolves_from_species.name;  
-            console.log(previousversion.evolves_from_species.name);
-            const resp2 = await fetch(`https://pokeapi.co/api/v2/pokemon/`+previousversion.evolves_from_species.name);
-            const resp3 = await resp2.json();
-            let pokemonOldPic = document.getElementById("poke-old-pic");   
-            pokemonOldPic.src = resp3.sprites.front_default;
+            let pokemonOldPic = document.getElementById("poke-old-pic"); 
+            let pokemonSpecie = document.getElementById("pokemon's-evolvs") 
+            if (previousversion.evolves_from_species){           
+                pokemonSpecie.innerHTML = previousversion.name+" evolved from: "+previousversion.evolves_from_species.name;  
+                console.log(previousversion.evolves_from_species.name);
+                const resp2 = await fetch(`https://pokeapi.co/api/v2/pokemon/`+previousversion.evolves_from_species.name);
+                const resp3 = await resp2.json();
+                pokemonOldPic.src = resp3.sprites.front_default;
+            }
+            else {
+                pokemonSpecie.innerHTML = "This species did not evolved";
+                pokeOldImg.src = "";
+            }
             console.log(previousversion.evolution_chain.url);
             const resp4 = await fetch (`${previousversion.evolution_chain.url}`);
             const resp5 = await resp4.json();
             let evoInfo = resp5.chain;
             console.log(evoInfo);
-            return evoInfo;
-            }
-             
-            
+        }            
             oldpokemon();
             getPokemon(pokemon_name);
-            
-        })            
+})      

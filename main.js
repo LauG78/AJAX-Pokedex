@@ -46,19 +46,30 @@ document.getElementById("search-by-name-button").addEventListener("click",()=>{
                    
             
             function evol () {
-                let evolvesTo1 = "Evolution: "+resp5.chain.evolves_to[0].species.name;
-                document.getElementById("evo1").innerHTML = evolvesTo1;
+                
+                if (resp5.chain.evolves_to[0]){
+                    let evolvesTo1 = "Evolution: "+resp5.chain.evolves_to[0].species.name;
+                    document.getElementById("evo1").innerHTML = evolvesTo1}
+                else {
+                    document.getElementById("evo1").innerHTML = "";
+                }
+                if (resp5.chain.evolves_to[1]){
                 let evolvesTo2 = "Evolution: "+resp5.chain.evolves_to[1].species.name;
-                document.getElementById("evo2").innerHTML = evolvesTo2;
+                document.getElementById("evo2").innerHTML = evolvesTo2;}
+                else{
+                    document.getElementById("evo2").innerHTML = ""
+                }
+                if (resp5.chain.evolves_to[2]){
                 let evolvesTo3 = "Evolution: "+resp5.chain.evolves_to[2].species.name;
                 document.getElementById("evo3").innerHTML = evolvesTo3;
-            }
+                }
+                else{
+                    document.getElementById("evo3").innerHTML = ""
+                }
+            
+        }
             evol();
         }
             oldpokemon();
             getPokemon(pokemon_name);  
-
-    //
-
-
 })      
